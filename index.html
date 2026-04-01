@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <title>Робот или человек: сможем ли мы отличить в будущем?</title>
-    <!-- Локальный Font Awesome (при отсутствии интернета используем локальные файлы) -->
+    <!-- Локальный Font Awesome (предполагается, что файлы лежат в assets/) -->
     <link rel="stylesheet" href="assets/css/all.min.css">
     <link rel="stylesheet" href="style.css">
 </head>
@@ -25,7 +25,6 @@
             <li><a href="#arguments-for" class="menu-link"><i class="fas fa-check-circle"></i> Тезисы «ЗА»</a></li>
             <li><a href="#arguments-against" class="menu-link"><i class="fas fa-question-circle"></i> Тезисы «ПРОТИВ»</a></li>
             <li><a href="#robots-future" class="menu-link"><i class="fas fa-android"></i> Роботы будущего</a></li>
-            <li><a href="#poll-section" class="menu-link"><i class="fas fa-chart-simple"></i> Опрос</a></li>
         </ul>
     </aside>
     <div class="menu-overlay" id="menuOverlay"></div>
@@ -42,7 +41,7 @@
         </div>
 
         <div class="arguments-grid">
-            <!-- Колонка ЗА (сможем отличить) -->
+            <!-- Колонка ЗА -->
             <div class="column for" id="arguments-for">
                 <h2><i class="fas fa-check-circle"></i> ЗА: мы сможем отличить</h2>
 
@@ -92,7 +91,7 @@
                 </div>
             </div>
 
-            <!-- Колонка ПРОТИВ (НЕ сможем отличить) -->
+            <!-- Колонка ПРОТИВ -->
             <div class="column against" id="arguments-against">
                 <h2><i class="fas fa-question-circle"></i> ПРОТИВ: мы НЕ сможем отличить</h2>
 
@@ -142,7 +141,7 @@
             </div>
         </div>
 
-        <!-- Блок роботов будущего -->
+        <!-- Блок роботов будущего (без изменений) -->
         <div class="robots-future" id="robots-future">
             <h2><i class="fas fa-android"></i> Роботы будущего: два сценария</h2>
             <div class="scenario-grid">
@@ -180,7 +179,7 @@
                             <p>Выращен из стволовых клеток, имеет ДНК, микробиом и автономный био-реактор. Ест кашу, синтезирует слёзы и пот – мать не заливает раствор.</p>
                         </div>
                         <div class="robot-card">
-                            <i class="fas fa-people-arrows"></i>
+                            <i class="fas fa-chameleon"></i>
                             <h4>ИИ-хамелеон</h4>
                             <p>Использует квантовый генератор случайности (распад атома) и эмулирует когнитивные искажения человека. Ошибается «истинно случайно» и адаптирует стиль ошибок под наблюдателя.</p>
                         </div>
@@ -200,32 +199,8 @@
             </div>
         </div>
 
-        <!-- Блок голосования -->
-        <div class="poll-section" id="poll-section">
-            <h3><i class="fas fa-chart-simple"></i> Ваш голос в дискуссии</h3>
-            <p>Как вы считаете, сможет ли человечество в будущем гарантированно отличить робота от человека?</p>
-            <div class="poll-buttons">
-                <button class="poll-btn" id="vote-for"><i class="fas fa-thumbs-up"></i> Да, сможем отличить</button>
-                <button class="poll-btn" id="vote-against"><i class="fas fa-microchip"></i> Нет, не сможем</button>
-                <button class="poll-btn" id="vote-unsure"><i class="fas fa-brain"></i> Сомневаюсь / сложный вопрос</button>
-            </div>
-            <div class="results" id="poll-results">
-                <div class="vote-stats">
-                    <p><i class="fas fa-chart-line"></i> Статистика голосов:</p>
-                    <div><span id="for-percent">0%</span> — Сможем отличить</div>
-                    <div class="stat-bar"><div class="stat-fill" id="for-fill"></div></div>
-                    <div><span id="against-percent">0%</span> — Не сможем отличить</div>
-                    <div class="stat-bar"><div class="stat-fill against-fill" id="against-fill"></div></div>
-                    <div><span id="unsure-percent">0%</span> — Сомневаюсь</div>
-                    <div class="stat-bar"><div class="stat-fill unsure-fill" id="unsure-fill"></div></div>
-                    <p style="font-size:0.85rem; margin-top:12px;" id="vote-count-text">Всего голосов: 0</p>
-                </div>
-            </div>
-        </div>
-
         <footer>
-            <i class="fas fa-robot"></i> Дискуссия о будущем технологий | Тезисы основаны на прогнозах AI-исследований, биоэтики и философии сознания.<br>
-            Интерактивное голосование сохраняет ваш выбор в браузере (localStorage). Каждый голос важен.
+            <i class="fas fa-robot"></i> Дискуссия о будущем технологий | Тезисы основаны на прогнозах AI-исследований, биоэтики и философии сознания.
         </footer>
     </div>
 

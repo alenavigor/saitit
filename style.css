@@ -21,23 +21,26 @@ body {
     text-align: center;
     margin-bottom: 3rem;
 }
-.hero h1 {
-    font-size: 2.4rem;
-    font-weight: 700;
-    background: linear-gradient(135deg, #0b3b5f, #2b5876);
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    margin-bottom: 0.75rem;
-    letter-spacing: -0.3px;
-}
-.hero .sub {
-    font-size: 1.2rem;
-    color: #2c5a7a;
-    border-bottom: 2px solid rgba(43, 88, 118, 0.2);
-    display: inline-block;
-    padding-bottom: 0.5rem;
-}
+
+    .hero h1 {
+        font-size: 2.4rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, #0b3b5f, #2b5876);
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        margin-bottom: 0.75rem;
+        letter-spacing: -0.3px;
+    }
+
+    .hero .sub {
+        font-size: 1.2rem;
+        color: #2c5a7a;
+        border-bottom: 2px solid rgba(43, 88, 118, 0.2);
+        display: inline-block;
+        padding-bottom: 0.5rem;
+    }
+
 .intro-text {
     max-width: 850px;
     margin: 1.5rem auto 0;
@@ -56,6 +59,7 @@ body {
     gap: 2rem;
     margin: 2.5rem 0 3rem;
 }
+
 @media (max-width: 860px) {
     .arguments-grid {
         grid-template-columns: 1fr;
@@ -72,73 +76,77 @@ body {
     transition: all 0.25s ease;
     border: 1px solid rgba(255,255,255,0.7);
 }
-.column:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 25px 40px -14px rgba(0,0,0,0.15);
-}
-.column h2 {
-    font-size: 1.9rem;
-    font-weight: 700;
-    margin-bottom: 1.5rem;
-    display: flex;
-    align-items: center;
-    gap: 12px;
-    border-left: 6px solid;
-    padding-left: 1rem;
-}
+
+    .column:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 25px 40px -14px rgba(0,0,0,0.15);
+    }
+
+    .column h2 {
+        font-size: 1.9rem;
+        font-weight: 700;
+        margin-bottom: 1.5rem;
+        display: flex;
+        align-items: center;
+        gap: 12px;
+        border-left: 6px solid;
+        padding-left: 1rem;
+    }
+
 .for h2 {
     border-left-color: #2c7a4d;
     color: #1c5a3a;
 }
+
 .against h2 {
     border-left-color: #b23c1c;
     color: #9b2e1a;
 }
+
+/* Карточка аргумента */
 .argument-card {
     background: white;
     border-radius: 1.5rem;
     padding: 1.3rem 1.5rem;
     margin-bottom: 1.5rem;
     box-shadow: 0 4px 12px rgba(0,0,0,0.03);
-    transition: all 0.2s;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
     border: 1px solid #e9edf2;
 }
-.argument-card:hover {
-    border-color: #cbd5e1;
-    background: #fefefe;
-}
+
+    .argument-card:hover {
+        transform: scale(1.02);
+        box-shadow: 0 12px 24px -8px rgba(0,0,0,0.15);
+    }
+
 .argument-title {
     font-size: 1.35rem;
     font-weight: 700;
-    margin-bottom: 0;
     display: flex;
     align-items: center;
     gap: 12px;
     cursor: pointer;
     user-select: none;
-    transition: background 0.2s;
 }
-.argument-title:hover {
-    background: rgba(0,0,0,0.02);
-}
-.for .argument-title:hover {
-    background: rgba(44,122,77,0.05);
-}
-.against .argument-title:hover {
-    background: rgba(178,60,28,0.05);
-}
+
+    .argument-title:hover {
+        text-decoration: underline;
+    }
+
 .argument-text {
-    display: none;
+    max-height: 0;
     overflow: hidden;
-    margin-top: 1rem;
-    transition: all 0.25s ease-in-out;
+    transition: max-height 0.4s ease-out;
+    margin-top: 0;
     color: #2d3e50;
     font-size: 0.98rem;
     line-height: 1.55;
     text-align: justify;
 }
+
 .argument-card.expanded .argument-text {
-    display: block;
+    max-height: 500px;
+    margin-top: 1rem;
 }
 
 /* Блок роботов будущего */
@@ -150,23 +158,27 @@ body {
     padding: 2rem;
     box-shadow: 0 12px 28px -8px rgba(0,0,0,0.08);
 }
-.robots-future h2 {
-    font-size: 1.9rem;
-    margin-bottom: 1.5rem;
-    text-align: center;
-    color: #1f4a6e;
-}
+
+    .robots-future h2 {
+        font-size: 1.9rem;
+        margin-bottom: 1.5rem;
+        text-align: center;
+        color: #1f4a6e;
+    }
+
 .scenario-grid {
     display: grid;
     grid-template-columns: 1fr 1fr;
     gap: 2rem;
     margin-bottom: 2rem;
 }
+
 @media (max-width: 860px) {
     .scenario-grid {
         grid-template-columns: 1fr;
     }
 }
+
 .scenario-card {
     background: white;
     border-radius: 1.8rem;
@@ -174,15 +186,19 @@ body {
     box-shadow: 0 8px 20px rgba(0,0,0,0.05);
     transition: transform 0.2s;
 }
-.scenario-card:hover {
-    transform: translateY(-4px);
-}
+
+    .scenario-card:hover {
+        transform: translateY(-4px);
+    }
+
 .scenario-1 {
     border-top: 5px solid #2c7a4d;
 }
+
 .scenario-2 {
     border-top: 5px solid #b23c1c;
 }
+
 .scenario-card h3 {
     font-size: 1.5rem;
     margin-bottom: 0.75rem;
@@ -190,45 +206,54 @@ body {
     align-items: center;
     gap: 0.5rem;
 }
+
 .scenario-desc {
     font-weight: 500;
     margin-bottom: 1.2rem;
     color: #2c5a7a;
 }
+
 .robot-types {
     display: flex;
     flex-direction: column;
     gap: 1rem;
     margin: 1rem 0;
 }
+
 .robot-card {
     background: #fafcfd;
     border-radius: 1.2rem;
     padding: 0.9rem 1.2rem;
     border-left: 4px solid;
 }
+
 .scenario-1 .robot-card {
     border-left-color: #2c7a4d;
 }
+
 .scenario-2 .robot-card {
     border-left-color: #b23c1c;
 }
+
 .robot-card i {
     font-size: 1.4rem;
     margin-right: 0.6rem;
     vertical-align: middle;
 }
+
 .robot-card h4 {
     display: inline-block;
     font-size: 1.2rem;
     margin: 0 0 0.5rem 0;
 }
+
 .robot-card p {
     margin: 0.5rem 0 0 0;
     font-size: 0.93rem;
     line-height: 1.45;
     color: #2c3e44;
 }
+
 .scenario-footer {
     margin-top: 1.2rem;
     font-size: 0.9rem;
@@ -237,6 +262,7 @@ body {
     border-radius: 1rem;
     color: #1e4663;
 }
+
 .final-insight {
     background: #fff5e6;
     border-radius: 1.5rem;
@@ -247,118 +273,7 @@ body {
     margin-top: 1rem;
 }
 
-/* Блок голосования */
-.poll-section {
-    background: #ffffffdd;
-    backdrop-filter: blur(8px);
-    border-radius: 2rem;
-    padding: 1.8rem 2rem;
-    margin: 1rem 0 2rem;
-    box-shadow: 0 12px 28px -8px rgba(0,0,0,0.08);
-    border: 1px solid rgba(0,0,0,0.05);
-}
-.poll-section h3 {
-    font-size: 1.7rem;
-    font-weight: 600;
-    margin-bottom: 0.5rem;
-}
-.poll-buttons {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem;
-    margin: 1.5rem 0 1.2rem;
-}
-.poll-btn {
-    background: #eef2fa;
-    border: none;
-    padding: 0.7rem 1.8rem;
-    font-size: 1rem;
-    font-weight: 600;
-    border-radius: 60px;
-    cursor: pointer;
-    transition: 0.2s;
-    font-family: inherit;
-    color: #1f3b4c;
-    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
-}
-.poll-btn:hover {
-    transform: scale(1.02);
-    background: #dfe6f0;
-}
-.poll-btn:active {
-    transform: scale(0.98);
-}
-.poll-btn:disabled {
-    opacity: 0.6;
-    cursor: not-allowed;
-    transform: none;
-    filter: grayscale(0.1);
-}
-.poll-btn.voted {
-    box-shadow: 0 0 0 2px #fff, 0 0 0 4px currentColor;
-}
-#vote-for { background: #c8e6d9; color: #145c33; border-left: 3px solid #2c7a4d; }
-#vote-for.voted { background: #b8dfcc; }
-#vote-against { background: #ffe0d6; color: #a03c1a; border-left: 3px solid #b23c1c; }
-#vote-against.voted { background: #ffcebe; }
-#vote-unsure { background: #e9e3cf; color: #7d6b2e; border-left: 3px solid #c9a63b; }
-#vote-unsure.voted { background: #f5e9c0; }
-.results {
-    background: #f8fafd;
-    padding: 1rem 1.5rem;
-    border-radius: 1.5rem;
-    margin-top: 1rem;
-}
-.stat-bar {
-    background: #e2e8f0;
-    border-radius: 20px;
-    height: 12px;
-    width: 100%;
-    overflow: hidden;
-    margin: 8px 0;
-}
-.stat-fill {
-    background: #2c7a4d;
-    width: 0%;
-    height: 100%;
-    border-radius: 20px;
-    transition: width 0.4s ease;
-}
-.stat-fill.against-fill {
-    background: #b23c1c;
-}
-.stat-fill.unsure-fill {
-    background: #c9a63b;
-}
-.vote-stats p {
-    margin: 0.6rem 0 0.2rem;
-    font-weight: 500;
-}
-footer {
-    text-align: center;
-    margin-top: 3rem;
-    padding-top: 1.5rem;
-    border-top: 1px solid rgba(0,0,0,0.08);
-    font-size: 0.85rem;
-    color: #5e6f82;
-}
-i.fa, i.far, i.fas {
-    margin-right: 4px;
-}
-@media (max-width: 550px) {
-    body {
-        padding: 1rem;
-    }
-    .column {
-        padding: 1.2rem;
-    }
-    .hero h1 {
-        font-size: 1.8rem;
-    }
-}
-/* ... весь предыдущий CSS ... */
-
-/* ========== БОКОВОЕ МЕНЮ ========== */
+/* Боковое меню */
 .menu-toggle {
     position: fixed;
     top: 20px;
@@ -374,9 +289,10 @@ i.fa, i.far, i.fas {
     box-shadow: 0 2px 10px rgba(0,0,0,0.1);
     transition: transform 0.2s;
 }
-.menu-toggle:hover {
-    transform: scale(1.05);
-}
+
+    .menu-toggle:hover {
+        transform: scale(1.05);
+    }
 
 .side-menu {
     position: fixed;
@@ -393,9 +309,11 @@ i.fa, i.far, i.fas {
     display: flex;
     flex-direction: column;
 }
-.side-menu.open {
-    left: 0;
-}
+
+    .side-menu.open {
+        left: 0;
+    }
+
 .menu-header {
     display: flex;
     justify-content: space-between;
@@ -406,6 +324,7 @@ i.fa, i.far, i.fas {
     font-weight: 600;
     color: #1f4a6e;
 }
+
 .close-menu {
     background: none;
     border: none;
@@ -414,19 +333,23 @@ i.fa, i.far, i.fas {
     color: #6c86a3;
     transition: color 0.2s;
 }
-.close-menu:hover {
-    color: #b23c1c;
-}
+
+    .close-menu:hover {
+        color: #b23c1c;
+    }
+
 .menu-items {
     list-style: none;
     padding: 1rem 0;
     margin: 0;
     flex-grow: 1;
 }
-.menu-items li {
-    margin: 0;
-    padding: 0;
-}
+
+    .menu-items li {
+        margin: 0;
+        padding: 0;
+    }
+
 .menu-link {
     display: block;
     padding: 0.9rem 1.5rem;
@@ -435,15 +358,18 @@ i.fa, i.far, i.fas {
     font-size: 1.1rem;
     transition: background 0.2s, padding-left 0.2s;
 }
-.menu-link i {
-    width: 1.8rem;
-    margin-right: 0.8rem;
-}
-.menu-link:hover {
-    background: #eef2fa;
-    padding-left: 2rem;
-    color: #0b3b5f;
-}
+
+    .menu-link i {
+        width: 1.8rem;
+        margin-right: 0.8rem;
+    }
+
+    .menu-link:hover {
+        background: #eef2fa;
+        padding-left: 2rem;
+        color: #0b3b5f;
+    }
+
 .menu-overlay {
     position: fixed;
     top: 0;
@@ -457,34 +383,60 @@ i.fa, i.far, i.fas {
     visibility: hidden;
     transition: opacity 0.3s ease, visibility 0.3s ease;
 }
-.menu-overlay.active {
-    opacity: 1;
-    visibility: visible;
-}
 
-/* Плавная прокрутка для якорей */
+    .menu-overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
 html {
     scroll-behavior: smooth;
 }
-/* Отступ для фиксированного меню, чтобы якорь не скрывался под бургером */
-section, [id] {
+
+[id] {
     scroll-margin-top: 80px;
 }
 
-/* Адаптация под мобильные */
 @media (max-width: 550px) {
+    body {
+        padding: 1rem;
+    }
+
+    .column {
+        padding: 1.2rem;
+    }
+
+    .hero h1 {
+        font-size: 1.8rem;
+    }
+
     .side-menu {
         width: 260px;
         left: -280px;
     }
+
     .menu-toggle {
         top: 12px;
         left: 12px;
         padding: 8px 12px;
         font-size: 1.3rem;
     }
+
     .menu-link {
         font-size: 1rem;
         padding: 0.7rem 1.2rem;
     }
+}
+
+footer {
+    text-align: center;
+    margin-top: 3rem;
+    padding-top: 1.5rem;
+    border-top: 1px solid rgba(0,0,0,0.08);
+    font-size: 0.85rem;
+    color: #5e6f82;
+}
+
+i.fa, i.far, i.fas {
+    margin-right: 4px;
 }
