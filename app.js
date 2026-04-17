@@ -1,18 +1,26 @@
-// Аккордеон с одним открытым пунктом в каждой колонке
+// Плавное раскрытие
 const argumentCards = document.querySelectorAll('.argument-card');
+
+function expandCard(card) {
+    const parentColumn = card.closest('.column');
+
+    // Закрываем другие карточки в этой колонке
+    parentColumn.querySelectorAll('.argument-card').forEach(c => {
+        if (c !== card && c.classList.contains('expanded')) {
+            c.classList.remove('expanded');
+        }
+    });
+
+    // Переключаем текущую
+    card.classList.toggle('expanded');
+}
+
 argumentCards.forEach(card => {
     const title = card.querySelector('.argument-title');
     if (!title) return;
-    title.addEventListener('click', () => {
-        const parentColumn = card.closest('.column');
-        // Закрываем все другие карточки в этой же колонке
-        parentColumn.querySelectorAll('.argument-card').forEach(c => {
-            if (c !== card && c.classList.contains('expanded')) {
-                c.classList.remove('expanded');
-            }
-        });
-        // Переключаем состояние текущей
-        card.classList.toggle('expanded');
+    title.addEventListener('click', (e) => {
+        e.stopPropagation();
+        expandCard(card);
     });
 });
 
@@ -56,7 +64,7 @@ document.addEventListener('keydown', (e) => {
     if (e.key === 'Escape' && sideMenu.classList.contains('open')) closeMenu();
 });
 
-// Анимация появления карточек аргументов (опционально)
+// Анимация появления карточек
 const cards = document.querySelectorAll('.argument-card');
 if (cards.length) {
     cards.forEach((card, idx) => {
