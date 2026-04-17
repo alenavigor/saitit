@@ -1,8 +1,19 @@
-/* ==========================================
-   FUTURISTIC CYBER THEME - ROBOT OR HUMAN?
-   ========================================== */
+/* Google Fonts удалён — используем системные шрифты */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&display=swap');
+body {
+    background: radial-gradient(ellipse at 20% 30%, #111827, #03050a);
+    font-family: 'Space Grotesk', 'Segoe UI', system-ui, -apple-system, 'Roboto', monospace;
+    color: var(--text-primary);
+    line-height: 1.5;
+    padding: 2rem 1.5rem;
+    position: relative;
+    min-height: 100vh;
+}
 
 :root {
     --bg-dark: #0a0c15;
@@ -19,47 +30,30 @@
     --transition-smooth: all 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
 }
 
-* {
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
+body::before {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
+    background-size: 40px 40px;
+    pointer-events: none;
+    z-index: 0;
 }
 
-body {
-    background: radial-gradient(ellipse at 20% 30%, #111827, #03050a);
-    font-family: 'Space Grotesk', 'Segoe UI', monospace;
-    color: var(--text-primary);
-    line-height: 1.5;
-    padding: 2rem 1.5rem;
-    position: relative;
-    min-height: 100vh;
+body::after {
+    content: "";
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle at 70% 40%, rgba(255, 0, 200, 0.08), transparent 60%);
+    pointer-events: none;
+    z-index: 0;
 }
-
-    /* Анимированный сетчатый фон */
-    body::before {
-        content: "";
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background-image: linear-gradient(rgba(0, 240, 255, 0.03) 1px, transparent 1px), linear-gradient(90deg, rgba(0, 240, 255, 0.03) 1px, transparent 1px);
-        background-size: 40px 40px;
-        pointer-events: none;
-        z-index: 0;
-    }
-
-    body::after {
-        content: "";
-        position: fixed;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: radial-gradient(circle at 70% 40%, rgba(255, 0, 200, 0.08), transparent 60%);
-        pointer-events: none;
-        z-index: 0;
-    }
 
 .container {
     max-width: 1400px;
@@ -122,6 +116,46 @@ body {
     font-weight: 400;
 }
 
+/* ========== CLICK HINT ========== */
+.click-hint {
+    max-width: 500px;
+    margin: 1.2rem auto 0;
+    background: rgba(255, 0, 200, 0.15);
+    backdrop-filter: blur(4px);
+    padding: 0.6rem 1.5rem;
+    border-radius: 40px;
+    font-size: 0.9rem;
+    font-weight: 600;
+    color: var(--neon-cyan);
+    border: 1px solid var(--neon-magenta);
+    box-shadow: 0 0 15px rgba(255, 0, 200, 0.3);
+    text-align: center;
+    letter-spacing: 0.5px;
+    animation: hintPulse 2s infinite;
+}
+
+    .click-hint i {
+        margin-right: 8px;
+        color: var(--neon-magenta);
+    }
+
+@keyframes hintPulse {
+    0% {
+        opacity: 0.8;
+        box-shadow: 0 0 8px var(--neon-magenta);
+    }
+
+    50% {
+        opacity: 1;
+        box-shadow: 0 0 18px var(--neon-cyan);
+    }
+
+    100% {
+        opacity: 0.8;
+        box-shadow: 0 0 8px var(--neon-magenta);
+    }
+}
+
 /* ========== ARGUMENTS GRID ========== */
 .arguments-grid {
     display: grid;
@@ -180,7 +214,7 @@ body {
     color: transparent;
 }
 
-/* ========== ARGUMENT CARDS (AKKORDEON) ========== */
+/* ========== ARGUMENT CARDS ========== */
 .argument-card {
     background: var(--bg-card-solid);
     border-radius: 1.5rem;
@@ -220,20 +254,20 @@ body {
 .argument-text {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.5s ease-out;
+    transition: max-height 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94);
     margin-top: 0;
     color: var(--text-secondary);
     font-size: 0.96rem;
     line-height: 1.6;
     text-align: justify;
-    border-top: 1px dashed transparent;
+    /* Пунктирная черта удалена */
 }
 
 .argument-card.expanded .argument-text {
-    max-height: 550px;
+    max-height: 800px;
     margin-top: 1rem;
-    border-top-color: rgba(0, 240, 255, 0.4);
     padding-top: 1rem;
+    /* border-top удалён */
 }
 
 /* ========== ROBOTS FUTURE SECTION ========== */
@@ -387,7 +421,112 @@ body {
     font-weight: 500;
 }
 
-/* ========== SIDE MENU (CYBER STYLE) ========== */
+/* ========== CULTURE SECTION ========== */
+.culture-section {
+    margin: 3rem 0 2rem;
+    background: rgba(10, 14, 25, 0.5);
+    backdrop-filter: blur(8px);
+    border-radius: 2rem;
+    padding: 2rem;
+    border: 1px solid rgba(0, 240, 255, 0.2);
+}
+
+    .culture-section h2 {
+        font-size: 2rem;
+        margin-bottom: 1.8rem;
+        text-align: center;
+        background: linear-gradient(135deg, var(--neon-green), var(--neon-cyan));
+        background-clip: text;
+        -webkit-background-clip: text;
+        color: transparent;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 12px;
+    }
+
+.culture-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+}
+
+@media (max-width: 700px) {
+    .culture-grid {
+        grid-template-columns: 1fr;
+    }
+}
+
+.culture-column {
+    display: flex;
+    flex-direction: column;
+}
+
+    .culture-column h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1.5rem;
+        color: var(--neon-magenta);
+        border-bottom: 2px solid var(--neon-cyan);
+        padding-bottom: 0.5rem;
+        display: flex;
+        align-items: center;
+        gap: 10px;
+    }
+
+.culture-card {
+    background: rgba(18, 22, 35, 0.8);
+    border-radius: 1.2rem;
+    padding: 1.2rem 1.5rem;
+    margin-bottom: 1.2rem;
+    border: 1px solid rgba(255, 0, 200, 0.2);
+    transition: var(--transition-smooth);
+    backdrop-filter: blur(4px);
+    flex: 1 1 auto;
+    display: flex;
+    flex-direction: column;
+}
+
+    .culture-card:hover {
+        border-color: var(--neon-cyan);
+        box-shadow: 0 0 18px rgba(0, 240, 255, 0.25);
+        transform: translateY(-4px);
+        background: rgba(25, 30, 45, 0.9);
+    }
+
+.culture-title {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: var(--neon-cyan);
+    margin-bottom: 0.5rem;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+    .culture-title i {
+        color: var(--neon-purple);
+        font-size: 1.3rem;
+    }
+
+.culture-card p {
+    color: var(--text-secondary);
+    font-size: 0.95rem;
+    line-height: 1.5;
+    flex: 1;
+}
+
+.culture-note {
+    margin-top: 2rem;
+    text-align: center;
+    font-style: italic;
+    color: #b9c7dd;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 0.8rem;
+    border-radius: 2rem;
+    border-left: 4px solid var(--neon-green);
+}
+
+/* ========== SIDE MENU ========== */
 .menu-toggle {
     position: fixed;
     top: 20px;
@@ -422,7 +561,7 @@ body {
     backdrop-filter: blur(20px);
     border-right: 1px solid var(--neon-magenta);
     z-index: 1002;
-    transition: left 0.3s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+    transition: left 0.35s ease-out;
     padding: 1.5rem 0;
     display: flex;
     flex-direction: column;
@@ -562,12 +701,13 @@ html {
         font-size: 1.1rem;
     }
 
-    .robots-future h2 {
+    .robots-future h2,
+    .culture-section h2 {
         font-size: 1.6rem;
     }
 }
 
-/* ========== GLITCH EFFECT FOR TITLES (optional) ========== */
+/* ========== GLITCH EFFECT ========== */
 @keyframes glitch {
     0% {
         text-shadow: -2px 0 var(--neon-magenta), 2px 0 var(--neon-cyan);
@@ -585,4 +725,3 @@ html {
 .hero h1:hover {
     animation: glitch 0.3s infinite;
 }
-
